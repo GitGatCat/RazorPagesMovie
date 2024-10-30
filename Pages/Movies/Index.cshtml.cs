@@ -29,6 +29,8 @@ namespace RazorPagesMovie.Pages_Movies
 
         [BindProperty(SupportsGet = true)]
         public string? MovieGenre { get; set; }        
+
+        
         
         public async Task OnGetAsync()
         {

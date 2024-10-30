@@ -28,4 +28,7 @@ public class Movie
     [StringLength(5)]
     [Required]
     public string Rating { get; set; } = string.Empty;
+    
+    [Required]
+    public bool Watched { get; set; }
 }
