@@ -30,7 +30,9 @@ namespace RazorPagesMovie.Pages_Movies
         [BindProperty(SupportsGet = true)]
         public string? MovieGenre { get; set; }        
 
-        
+        [BindProperty(SupportsGet = true)]
+        public bool? WatchedMovies { get; set; }
+       
         
         public async Task OnGetAsync()
         {
@@ -51,6 +53,13 @@ namespace RazorPagesMovie.Pages_Movies
             {
                 movies = movies.Where(x => x.Genre == MovieGenre);
             }
+
+            if (WatchedMovies is bool WatchedStatus)            
+            {
+                movies = movies.Where(x => x.Watched == WatchedStatus);
+            }
+
+            
             Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
             Movie = await movies.ToListAsync();
         }
